@@ -13,7 +13,7 @@
 
 	<properties>
 		<java.version>23</java.version>
-		<spring.version>6.2.0</spring.version>
+		<spring.version>6.2.19</spring.version>
 	</properties>
 
 	<dependencies>
@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>org.springframework.hateoas</groupId>
 			<artifactId>spring-hateoas</artifactId>
-			<version>2.4.0</version>
+			<version>2.5.3</version>
 		</dependency>
 
 
@@ -48,14 +48,14 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.15.2</version>
+			<version>2.23.0</version>
 		</dependency>
 
 		<!-- Jackson Databind -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.15.2</version>
+			<version>2.23.0</version>
 		</dependency>
 
 		<!-- Jackson Annotations -->
@@ -93,4 +93,21 @@
 			</plugin>
 		</plugins>
 	</build>
+
+    <!-- Pin patched versions of vulnerable dependencies -->
+    <dependencyManagement>
+        <dependencies>
+        <!-- BEGIN vuln-pins (OSV scan) -->
+            <dependency><groupId>com.fasterxml.jackson</groupId><artifactId>jackson-bom</artifactId><version>2.23.0</version><type>pom</type><scope>import</scope></dependency>
+            <dependency><groupId>net.minidev</groupId><artifactId>json-smart</artifactId><version>2.6.1</version></dependency>
+            <dependency><groupId>org.springframework</groupId><artifactId>spring-context</artifactId><version>6.2.19</version></dependency>
+            <dependency><groupId>org.springframework</groupId><artifactId>spring-core</artifactId><version>6.2.19</version></dependency>
+            <dependency><groupId>org.springframework</groupId><artifactId>spring-expression</artifactId><version>6.2.19</version></dependency>
+            <dependency><groupId>org.springframework</groupId><artifactId>spring-web</artifactId><version>6.2.19</version></dependency>
+            <dependency><groupId>org.springframework</groupId><artifactId>spring-webmvc</artifactId><version>6.2.19</version></dependency>
+            <dependency><groupId>org.springframework.hateoas</groupId><artifactId>spring-hateoas</artifactId><version>2.5.3</version></dependency>
+        <!-- END vuln-pins -->
+        </dependencies>
+    </dependencyManagement>
+
 </project>
